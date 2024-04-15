@@ -18,7 +18,7 @@ export default async function Home() {
     const recently_played = await getData(`/media/recently-played?machine_id=${machineUUID}&user_id=`);
     const all_ragis = await getData("/media-authors/alphabet-list");
 
-    console.log("podcast_index", featured_ragis);
+    console.log("podcast_index");
 
     return (
         <>
@@ -92,7 +92,7 @@ export default async function Home() {
                 </div>
                 <div className="flex justify-center m-10">
                     <Link
-                        href="/Media/Ragis"
+                        href="/media/Ragis"
                         className='mx-auto text-white text-sm bg-blue-primary px-[20px] py-[5px] border border-white rounded-full gap-1'
                     >
                         View All Ragis
