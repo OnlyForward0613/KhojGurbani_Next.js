@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import Link from 'next/link';
 import SearchMedia from "@/components/pages/media/searchbar";
 import SlideRecent from "@/components/pages/media/RecentSlide";
 import SlideTrack from '@/components/pages/media/TrackSlide';
@@ -88,6 +89,14 @@ export default async function Home() {
                     <div className="hidden xl:block">
                         <SlideRagi showCount={6} featuredRagis={featured_ragis} />
                     </div>
+                </div>
+                <div className="flex justify-center m-10">
+                    <Link
+                        href="/Media/Ragis"
+                        className='mx-auto text-white text-sm bg-blue-primary px-[20px] py-[5px] border border-white rounded-full gap-1'
+                    >
+                        View All Ragis
+                    </Link>
                 </div>
             </div>
         </>
