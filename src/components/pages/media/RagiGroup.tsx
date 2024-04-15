@@ -60,7 +60,7 @@ export default function Groups(props: { allRagis: any; }) {
                         {allRagis[group].map((item: { id: string; name: string; description: string; attachment_name: string; }) => (
                             <Link
                                 key={item.id}
-                                href={`/Media/${item.id}`}
+                                href={`/media/${item.id}`}
                                 className="cursor-pointer"
                             >
                                 <img className="" src={item.attachment_name} />
