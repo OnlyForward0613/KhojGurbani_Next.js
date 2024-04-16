@@ -4,7 +4,7 @@ export default function ButtonPlay(props: { isPlaying: boolean, type: boolean, w
         <div className={(type ? `bg-blue-primary ` : `bg-[#E0E1E2] hover:bg-[#CACBCD] `) + `relative rounded-full flex justify-center items-center transition-all`}
             style={{ width: `${width}px`, height: `${height}px` }}>
             {type ?
-                isPlaying ?
+                !isPlaying ?
                     <svg viewBox="0 0 24 24" width={width / 2} height={height / 2} xmlns="http://www.w3.org/2000/svg"
                         className="transition-all fill-white absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%]">
                         <path 

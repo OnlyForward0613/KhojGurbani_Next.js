@@ -15,7 +15,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 import AuthWrapper from '@/contexts/AuthWrapper';
-import AudioPlayerProvider from '@/contexts/AudioPlayerContext';
+import { AudioPlayerProvider } from '@/contexts/AudioPlayerContext';
 import { AudioPlayer } from '@/components/ui/AudioPlayer';
 
 const poppins = Poppins({
