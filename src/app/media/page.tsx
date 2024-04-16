@@ -18,8 +18,6 @@ export default async function Home() {
     const recently_played = await getData(`/media/recently-played?machine_id=${machineUUID}&user_id=`);
     const all_ragis = await getData("/media-authors/alphabet-list");
 
-    console.log("podcast_index");
-
     return (
         <>
             <div className="w-full bg-center bg-cover bg-[url('/images/media/top.png')]">

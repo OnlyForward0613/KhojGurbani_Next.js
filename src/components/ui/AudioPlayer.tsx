@@ -4,6 +4,8 @@ import { useAudioPlayer } from '@/contexts/AudioPlayerContext';
 import clsx from 'clsx';
 import React, { useEffect, useRef, useState } from 'react'
 import ReactPlayer from "react-player";
+import ReactAudioPlayer from "react-audio-player";
+import { getAudioDurationInSeconds } from "get-audio-duration";
 import { PlayPauseButton } from './PlayPauseButton';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -21,7 +23,8 @@ export const AudioPlayer: React.FC = () => {
 
     const playerRef = useRef<ReactPlayer>(null);
     const progressRef = useRef<HTMLDivElement>(null);
-    const [audioDataProps, setAudioDataProps] = useAudioPlayer();
+    const { audioId, audioTitle, audioUrl, isPlaying, pauseAudio, playAudio, audioDuration } = useAudioPlayer();
+    const [audioPlayerContext, setAudioPlayerContext] = useState<any>();
 
     const [isShow, setIsShow] = useState(false);
 
@@ -32,7 +35,8 @@ export const AudioPlayer: React.FC = () => {
     const [loadedSec, setLoadedSec] = useState(0);
 
     useEffect(() => {
-        if (audioDataProps.audioUrl) {
+        console.log("audioURL: ", audioUrl, audioDuration);
+        if (audioUrl) {
             setIsLoaded(true);
             setIsShow(true);
             setIsBuffering(true);
@@ -40,10 +44,17 @@ export const AudioPlayer: React.FC = () => {
             setPlayedSec(0);
             setLoadedSec(0);
         }
-    }, [audioDataProps.audioUrl]);
+        if (playerRef.current) {
+            let duration = playerRef.current.getDuration();
+            setDuration(duration);
+        }
+    }, [audioUrl]);
 
     const onDuration = (duration: number) => {
         setDuration(duration);
+        setIsBuffering(false);
+        console.log("buffering: ", isBuffering);
+
     }
 
     const onReady = () => {
@@ -54,15 +65,16 @@ export const AudioPlayer: React.FC = () => {
     const onProgress = ({ playedSeconds, loadedSeconds }: { playedSeconds: number, loadedSeconds: number }) => {
         setPlayedSec(playedSeconds);
         setLoadedSec(loadedSeconds);
+        setIsBuffering(false);
     }
 
     const onBuffer = () => {
-        setIsBuffering(true);
+        // setIsBuffering(true);
     }
 
     const onError = () => {
         toast.error("Error while playing audio");
-        setAudioDataProps({ audioId: 0, audioTitle: "", audioUrl: "", isPlaying: false });
+        setAudioPlayerContext({ audioId: 0, audioTitle: "", audioUrl: "", isPlaying: false });
         setIsShow(false);
         setIsLoaded(false);
     }
@@ -117,8 +129,8 @@ export const AudioPlayer: React.FC = () => {
             {hasWindow &&
                 <ReactPlayer
                     ref={playerRef}
-                    url={audioDataProps.audioUrl}
-                    playing={audioDataProps.isPlaying}
+                    url={"https://www.learningcontainer.com/wp-content/uploads/2020/05/sample-mp4-file.mp4"}
+                    playing={isPlaying}
                     progressInterval={100}
                     controls={false}
                     onDuration={onDuration}
@@ -127,6 +139,7 @@ export const AudioPlayer: React.FC = () => {
                     onBuffer={onBuffer}
                     onError={onError}
                     className="hidden"
+                    style={{ display: 'none' }}
                 />
             }
 
@@ -145,13 +158,17 @@ export const AudioPlayer: React.FC = () => {
                             {isBuffering ?
                                 <Image src='/images/svg/buffering.svg' alt="buffering" width={64} height={64} className='cursor-wait' />
                                 :
-                                <PlayPauseButton onClick={() => setAudioDataProps({ ...audioDataProps, isPlaying: !audioDataProps.isPlaying })} isPlaying={audioDataProps.isPlaying} isSelected={true} size={2} />
+                                <PlayPauseButton onClick={() => {
+                                    setAudioPlayerContext({ ...audioPlayerContext, isPlaying: !isPlaying });
+                                    if (isPlaying) pauseAudio();
+                                    else playAudio(audioUrl, audioTitle, audioId, duration);
+                                }} isPlaying={isPlaying} isSelected={true} size={2} />
                             }
                             <Image className='cursor-pointer' src='/images/svg/forward-15-seconds.svg' alt="backword-15-seconds" width={32} height={32} />
                         </div>
                         <div className='relative grow'>
                             <div className='absolute top-0 left-1/2 -translate-x-1/2 w-full text-center text-nowrap text-clip'>
-                                {audioDataProps.audioTitle}
+                                {audioTitle}
                             </div>
                             <div className='flex h-full grow items-center translate-y-3 md:translate-y-0'>
                                 <div className='w-16 text-left'>{convertStoMs(playedSec)}</div>
@@ -169,10 +186,10 @@ export const AudioPlayer: React.FC = () => {
                         {isBuffering ?
                             <Image src='/images/svg/buffering.svg' alt="buffering" width={64} height={64} className='cursor-wait' />
                             :
-                            <PlayPauseButton onClick={() => setAudioDataProps({ ...audioDataProps, isPlaying: !audioDataProps.isPlaying })} isPlaying={audioDataProps.isPlaying} isSelected={true} size={2} />
+                            <PlayPauseButton onClick={() => setAudioPlayerContext({ ...audioPlayerContext, isPlaying: !audioPlayerContext?.isPlaying })} isPlaying={isPlaying} isSelected={true} size={2} />
                         }
                         <div className=''>
-                            {audioDataProps.audioTitle}
+                            {audioTitle}
                         </div>
                     </div>
                 }
