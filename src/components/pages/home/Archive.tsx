@@ -19,7 +19,8 @@ interface ArchiveProps {
 
 export const Archive = ({ archive }: { archive: ArchiveProps[] }) => {
 
-    const [, setAudioDataProps] = useAudioPlayer();
+    const {audioId, audioTitle, audioUrl, audioDuration, isPlaying} = useAudioPlayer();
+    const [audioData, setAudioDataProps] = useState<object>();
 
     const swiperRef = useRef<SwiperRef>(null);
 
