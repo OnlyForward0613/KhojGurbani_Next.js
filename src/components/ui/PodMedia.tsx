@@ -1,5 +1,5 @@
 'use client'
-
+import { useState } from "react";
 import { useAudioPlayer } from "@/contexts/AudioPlayerContext";
 import { date_transform } from "@/utils/date_transform";
 import Image from "next/image";
@@ -7,7 +7,8 @@ import Highlighter from "react-highlight-words";
 
 export default function PodMedia(props: { id: number; imgURL: string; title: string; description: string; query: string; media: string; created_at: string; }) {
 
-    const [, setAudioDataProps] = useAudioPlayer();
+    // const [, setAudioDataProps] = useAudioPlayer();
+    const [audioData, setAudioDataProps] = useState<object>({});
 
     const handleClick = () => {
         setAudioDataProps({
