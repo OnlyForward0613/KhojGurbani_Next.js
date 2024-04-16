@@ -25,7 +25,12 @@ export const SubAudios = (
     const { data: session } = useSession();
 
     const [expand, setExpand] = useState(false);
-    const [audioDataProps, setAudioDataProps] = useAudioPlayer();
+    // const [audioDataProps, setAudioDataProps] = useAudioPlayer();
+    const {audioId, isPlaying} = useAudioPlayer();
+    const [audioDataProps, setAudioDataProps] = useState<any>({
+        audioId: audioId,
+        isPlaying: isPlaying
+    });
 
     const handleClick = (item: Audio) => {
         if (item.id === audioDataProps.audioId) {

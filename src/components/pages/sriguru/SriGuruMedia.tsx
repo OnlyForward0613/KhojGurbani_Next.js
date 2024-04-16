@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { SubAudios } from "./SubAudios";
 import { SubVideos } from "./SubVideos";
@@ -39,7 +40,8 @@ interface ShabadMedias {
 export const SriGuruMedia = ({ shabadMedias, setAudioOpen, setVideoOpen }: { shabadMedias: ShabadMedias; setAudioOpen: any; setVideoOpen: any }) => {
 
     const { data: session } = useSession();
-    const [audioDataProps, setAudioDataProps] = useAudioPlayer();
+    // const [audioDataProps, setAudioDataProps] = useAudioPlayer();
+    const [audioDataProps, setAudioDataProps] = useState<object>({});
 
     function handleDownload(id: number) {
         console.log("download");
