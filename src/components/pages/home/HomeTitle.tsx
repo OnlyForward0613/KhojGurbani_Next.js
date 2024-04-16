@@ -1,12 +1,13 @@
 'use client'
-
+import { useState } from "react";
 import { useAudioPlayer } from "@/contexts/AudioPlayerContext";
 import { faCircleInfo } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 
 export const HomeTitle_1 = ({ podcast_index }: { podcast_index: any }) => {
 
-    const [, setAudioDataProps] = useAudioPlayer();
+    // const [, setAudioDataProps] = useAudioPlayer();
+    const [audioData, setAudioDataProps] = useState<object>({});
 
     const handleEnglish = () => {
         setAudioDataProps({
@@ -47,7 +48,8 @@ export const HomeTitle_1 = ({ podcast_index }: { podcast_index: any }) => {
 
 export const HomeTitle_2 = ({ podcast_index }: { podcast_index: any }) => {
 
-    const [, setAudioDataProps] = useAudioPlayer();
+    // const [, setAudioDataProps] = useAudioPlayer();
+    const [audioData, setAudioDataProps] = useState<object>({});
 
     const handleEnglish = () => {
         setAudioDataProps({

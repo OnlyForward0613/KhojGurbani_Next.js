@@ -3,7 +3,7 @@
 import { faChevronLeft, faChevronRight } from "@fortawesome/free-solid-svg-icons"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import Image from "next/image"
-import { useCallback, useRef } from "react"
+import { useCallback, useRef, useState } from "react"
 import { Swiper, SwiperRef, SwiperSlide } from "swiper/react"
 import 'swiper/css';
 import { useAudioPlayer } from "@/contexts/AudioPlayerContext"
@@ -18,7 +18,7 @@ interface Featured_Podcast {
 
 export const FeaturedPodcasts = ({ featured_podcasts }: { featured_podcasts: Featured_Podcast[] }) => {
 
-    const [, setAudioDataProps] = useAudioPlayer();
+    const [audioData, setAudioDataProps] = useState<object>();
 
     const swiperRef = useRef<SwiperRef>(null);
 
