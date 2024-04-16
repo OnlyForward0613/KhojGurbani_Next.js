@@ -18,7 +18,7 @@ interface Featured_Podcast {
 
 export const FeaturedPodcasts = ({ featured_podcasts }: { featured_podcasts: Featured_Podcast[] }) => {
 
-    const [audioData, setAudioDataProps] = useState<object>();
+    const [audioData, setAudioDataProps] = useState<object>({});
 
     const swiperRef = useRef<SwiperRef>(null);
 
