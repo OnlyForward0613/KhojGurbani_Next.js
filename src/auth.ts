@@ -20,7 +20,7 @@ export const { handlers: { GET, POST }, auth, signIn, signOut } = NextAuth({
                     provider: token.provider,
                     social_account_id: token.social_account_id
                 }
-                const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_URL}/login-with-social`,
+                const res = await fetch(`https://api2.khojgurbani.org/api/v1/login-with-social`,
                     {
                         method: 'POST',
                         headers: {

@@ -86,7 +86,7 @@ export const AddAudio = ({ audioOpen, setAudioOpen, mediaForm }: { audioOpen: bo
 
         };
 
-        axios.post(process.env.NEXT_PUBLIC_BACKEND_URL + '/media/add', mediaForm, config)
+        axios.post("https://api2.khojgurbani.org/api/v1" + '/media/add', mediaForm, config)
             .then(res => {
                 RevalidateSriguru();
                 setTimeout(() => {
