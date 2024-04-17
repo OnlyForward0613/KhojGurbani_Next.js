@@ -48,7 +48,7 @@ export default function SlideRagi(props: { featuredRagis: any; showCount: any; }
                                 href={`/Media/${item.id}`}
                                 className="cursor-pointer"
                             >
-                                <img
+                                <Image
                                     src={item.attachment_name}
                                     alt={item.name}
                                     className='aspect-square rounded-xl w-full'

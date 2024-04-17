@@ -48,7 +48,7 @@ export default function SlideCategory(props: { featuredCategories: any; showCoun
                                 href={`/Media/Category/${item.id}`}
                                 className="cursor-pointer"
                             >
-                                <img
+                                <Image
                                     src={item.attachment_name}
                                     alt={item.name}
                                     className='w-full'

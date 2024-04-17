@@ -1,6 +1,7 @@
 "use client"
 
 import Link from "next/link";
+import Image from "next/image";
 import { createRef, useRef, useState, useEffect } from "react";
 
 export default function Groups(props: { allRagis: any; }) {
@@ -63,7 +64,7 @@ export default function Groups(props: { allRagis: any; }) {
                                 href={`/media/${item.id}`}
                                 className="cursor-pointer"
                             >
-                                <img className="" src={item.attachment_name} />
+                                <Image className="" src={item.attachment_name} alt={item.name}/>
                                 <div className="text-[#424242] text-sm my-3">{item.name}</div>
                             </Link>
                         ))}

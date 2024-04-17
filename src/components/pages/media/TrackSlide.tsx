@@ -51,7 +51,7 @@ export default function SlideTrack(props: { featuredTracks: any; showCount: any;
                                 className="cursor-pointer text-[#252638] hover:text-blue-primary text-[15px]"
                                 // onClick={() => playAudio(item.attachment_name, `${item.author_name} (${item.title})`, item.id)}
                             >
-                                <img
+                                <Image
                                     src={item.img}
                                     alt={item.title}
                                     className='w-full'
