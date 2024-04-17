@@ -75,7 +75,7 @@ export default function SlideRadio(props: { radios: any; showCount: any; }) {
                 onClick={() => navigateToNextSlide()}
                 className='bg-[#4F4F4F] bg-opacity-50 rounded-full p-2 absolute top-[calc(50%-16px)] right-2 xl:right-[-36px] z-10 transition-all'
             >
-                <Image src='/Images/SVG/arrow_right.svg' alt='right' width={16} height={16} />
+                <Image src='/images/svg/arrow_right.svg' alt='right' width={16} height={16} />
             </button>
         </div>
     );

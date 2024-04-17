@@ -41,7 +41,7 @@ export default async function RagisPage() {
 
     return (
         <>
-            <div className="w-full bg-center bg-cover bg-[url('/Images/Media/ragis.jpg')]">
+            <div className="w-full bg-center bg-cover bg-[url('/images/media/ragis.jpg')]">
                 <h1 className="mx-auto max-w-6xl px-4 py-[27px] sm:py-16 md:py-20 lg:py-[100px] text-2xl sm:text-3xl md:text-4xl lg:text-[40px] font-bold text-white">Ragi Directory</h1>
             </div>
             <div className="max-w-6xl px-4 mx-auto">

@@ -193,7 +193,7 @@ const SearchMedia = (props: { allRagis: any; }) => {
                             value={search_keyword}
                         />
                         <Image
-                            src="/Images/Media/english.png"
+                            src="/images/media/english.png"
                             alt="english"
                             width={200}
                             height={200}
@@ -205,7 +205,7 @@ const SearchMedia = (props: { allRagis: any; }) => {
                             }}
                         />
                         <Image
-                            src="/Images/Media/punjabi.png"
+                            src="/images/media/punjabi.png"
                             alt="gurmukhi"
                             width={200}
                             height={200}

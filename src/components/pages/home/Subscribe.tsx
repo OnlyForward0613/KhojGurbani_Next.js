@@ -1,6 +1,6 @@
 export const Subscribe = () => {
     return (
-        <div className="w-full bg-right-top bg-cover bg-[url('/Images/Home/homesub.jpg')]">
+        <div className="w-full bg-right-top bg-cover bg-[url('/images/home/homesub.jpg')]">
             <div className="mx-auto max-w-6xl p-4">
                 <h2 className="text-lg sm:text-3xl py-4 font-bold text-title text-center">
                     SUBSCRIBE TO OUR NEWSLETTER
