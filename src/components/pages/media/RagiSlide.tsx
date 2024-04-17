@@ -52,6 +52,8 @@ export default function SlideRagi(props: { featuredRagis: any; showCount: any; }
                                     src={item.attachment_name}
                                     alt={item.name}
                                     className='aspect-square rounded-xl w-full'
+                                    width={100}
+                                    height={100}
                                 />
                                 <div className="text-[#4E4E4E] text-sm">{item.name}</div>
                             </Link>

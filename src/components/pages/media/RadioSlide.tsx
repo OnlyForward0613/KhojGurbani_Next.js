@@ -54,6 +54,8 @@ export default function SlideRadio(props: { radios: any; showCount: any; }) {
                                     src={"/images/" + item.img}
                                     alt={item.title}
                                     className='w-full'
+                                    width={100}
+                                    height={100}
                                 />
                                 <div className="text-white text-lg text-center absolute bottom-[95px] w-full">{item.title}</div>
                                 <div className="absolute bottom-[25px] w-full flex justify-center">

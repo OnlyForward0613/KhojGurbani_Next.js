@@ -64,7 +64,7 @@ export default function Groups(props: { allRagis: any; }) {
                                 href={`/media/${item.id}`}
                                 className="cursor-pointer"
                             >
-                                <Image className="" src={item.attachment_name} alt={item.name}/>
+                                <Image src={item.attachment_name} alt={item.name} width={100} height={100}/>
                                 <div className="text-[#424242] text-sm my-3">{item.name}</div>
                             </Link>
                         ))}
