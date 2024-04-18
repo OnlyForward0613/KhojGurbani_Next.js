@@ -5,9 +5,10 @@ import { FeaturedThemes } from "@/components/pages/home/FeaturedThemes";
 import { Subscribe } from "@/components/pages/home/Subscribe";
 import { Welcome } from "@/components/pages/home/Welcome";
 import { getData } from "@/utils/fetch_server";
+// import parseCredential from "@/utils/google_credential";
 
 export default async function Home() {
-
+    const test1 = ['502284248679', '-', 'bd8nsnqgpvm0176grr3tpg5987412so5', '.', 'apps', 'googleusercontent', '.', 'com'];
     const podcast_index = await getData("/media/podcast-index?time=1234567890");
     const podcast_listing = await getData("/featured-api/podcast-listing");
     const archive_latest = await getData("/media/archive-latest");
