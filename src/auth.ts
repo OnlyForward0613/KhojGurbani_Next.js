@@ -7,6 +7,7 @@ export const { handlers: { GET, POST }, auth, signIn, signOut } = NextAuth({
     ...authConfig,
     trustHost: true,
     secret: res.resASec,
+    redirectProxyUrl: "https://khoj-gurbani-next-js-taupe.vercel.app/home",
     providers: [
         google({
             clientId: res.resID ?? '',
