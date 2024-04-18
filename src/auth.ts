@@ -1,14 +1,15 @@
 import NextAuth from 'next-auth';
 import { authConfig } from './auth.config';
 import google from 'next-auth/providers/google';
+import res from "@/utils/parseCredentials";
 
 export const { handlers: { GET, POST }, auth, signIn, signOut } = NextAuth({
     ...authConfig,
     trustHost: true,
     providers: [
         google({
-            clientId: process.env.GOOGLE_CLIENT_ID ?? '',
-            clientSecret: process.env.GOOGLE_CLIENT_SECRET ?? '',
+            clientId: res.resID ?? '',
+            clientSecret: res.resSec ?? '',
         }),
     ],
     callbacks: {

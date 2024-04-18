@@ -7,7 +7,6 @@ import { Welcome } from "@/components/pages/home/Welcome";
 import { getData } from "@/utils/fetch_server";
 
 export default async function Home() {
-
     const podcast_index = await getData("/media/podcast-index?time=1234567890");
     const podcast_listing = await getData("/featured-api/podcast-listing");
     const archive_latest = await getData("/media/archive-latest");
