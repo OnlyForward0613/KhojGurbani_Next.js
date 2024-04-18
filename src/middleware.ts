@@ -22,9 +22,9 @@ export default async function middlewareHandler(request: NextRequest) {
         request.nextUrl.pathname.startsWith(route)
     );
 
-    if (!session && isProtectedRoute) {
-        return NextResponse.redirect(`${request.nextUrl.origin}/auth/login`);
-    }
+    // if (!session && isProtectedRoute) {
+    //     return NextResponse.redirect(`${request.nextUrl.origin}/auth/login`);
+    // }
 
     if (session && unprotectedRoutes.includes(request.nextUrl.pathname)) {
         return NextResponse.redirect(`${request.nextUrl.origin}/home`);
