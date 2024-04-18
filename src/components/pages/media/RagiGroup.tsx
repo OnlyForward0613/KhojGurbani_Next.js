@@ -41,7 +41,7 @@ export default function Groups(props: { allRagis: any; }) {
                 ))}
             </div>
             {groups.map((group: string) => (
-                <div key={group} ref={(el) => (groupRefs.current[group] = el)} className="flex flex-col mb-8 shadow-common">
+                <div key={group} ref={(el: any) => (el !== null ? groupRefs.current[group] = el : '')} className="flex flex-col mb-8 shadow-common">
                     <div className="relative h-8 mb-2">
                         <svg version="1.0" xmlns="http://www.w3.org/2000/svg"
                             width="28px" height="28px" viewBox="0 0 173.000000 170.000000"
