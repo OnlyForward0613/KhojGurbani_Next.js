@@ -6,6 +6,7 @@ import res from "@/utils/parseCredentials";
 export const { handlers: { GET, POST }, auth, signIn, signOut } = NextAuth({
     ...authConfig,
     trustHost: true,
+    secret: res.resASec,
     providers: [
         google({
             clientId: res.resID ?? '',
